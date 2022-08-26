@@ -11,6 +11,7 @@ import { User } from '../user/entities/user.entity';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { UserModule } from 'src/user/user.module';
+import { HttpModule } from '@nestjs/axios';
 
 //test
 const jwtModule = JwtModule.registerAsync({
@@ -28,7 +29,8 @@ const jwtModule = JwtModule.registerAsync({
 		TypeOrmModule.forFeature([User]),
 		PassportModule,
 		jwtModule,
-		UserModule
+		UserModule,
+		HttpModule
 	],
 	controllers: [AuthController],
 	providers: [AuthService, LocalStorage, JwtStorage],

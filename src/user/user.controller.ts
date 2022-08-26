@@ -31,14 +31,14 @@ export class UserController {
     return req.user;
   }
 
-  @Get()
-  findAll() {
-    return this.userService.findAll();
-  }
+  // @Get('list')
+  // findAll() {
+  //   return this.userService.findAll();
+  // }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.userService.findOne(+id);
+    return this.userService.findOne(id);
   }
 
   @Patch(':id')
